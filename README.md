@@ -2,13 +2,21 @@
 
 This repository contains the public company identity website for **GKC Data Solutions Inc.** It establishes the company's public presence and provides concise information about the company and Data Discovery.
 
-The intended GitHub repository name is `gkcdatasolutions.github.io`, under the authorized `gkcdatasolutions` personal GitHub account. The intended custom domain is `gkcdatasolutions.com`.
+The GitHub repository is `gkcdatasolutions.github.io`, under the authorized `gkcdatasolutions` personal GitHub account. The production URL is `https://gkcdatasolutions.com/`.
 
 ## Architecture
 
 The site has a zero-build static architecture: one semantic HTML document, one local stylesheet and the company-provided logo asset. It has no JavaScript, package dependencies, external assets, analytics, cookies or server-side components. The `.nojekyll` file makes the publishing intent explicit for GitHub Pages.
 
-No `CNAME` file is included in this local-review slice. The custom domain should be established only after account-level domain verification through **Settings → Pages** for the `gkcdatasolutions` personal GitHub account.
+The root `CNAME` file records `gkcdatasolutions.com` as the custom domain for branch-based GitHub Pages publishing.
+
+## Production configuration
+
+- GitHub Pages publishing is owned by the authorized `gkcdatasolutions` personal GitHub account; DNS remains managed through Squarespace.
+- The apex domain routes to GitHub Pages through GitHub's four documented `A` records.
+- `www.gkcdatasolutions.com` is a `CNAME` for `gkcdatasolutions.github.io` and redirects to the primary apex domain.
+- The `_github-pages-challenge-gkcdatasolutions` TXT record used for account-level domain verification must remain in DNS permanently.
+- All Google Workspace MX, TXT and other email-related DNS records must be preserved.
 
 ## Local preview
 
