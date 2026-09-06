@@ -35,6 +35,8 @@ Edit the HTML and CSS directly. The pages share consistent markup and CSS classe
 
 Use the approved redesign brief as the content and positioning source. The public project names are Integration Hub, Data Discovery, Email Archiver and Operational Data Transformer. Client attribution is intentionally generic. The modernization approach is described as a service approach, not a fabricated completed client engagement.
 
+Gord's subsequent positioning clarification takes precedence over copy that implies every engagement ends in a custom build: always assess software already on the market against the client's requirements first. Recommend buying when an existing application fits. Build only for needs the market cannot meet, including missing parts around a suitable existing product. Recommendations must be fit for purpose and serve the client's interests; development is a means to that end.
+
 Do not add unverified credentials, client names, testimonials, metrics, measured outcomes or product claims. Use only sanitized, approved screenshots if screenshots are introduced later. No production screenshots or confidential client information are included in this version.
 
 Gord is arranging screenshots of Email Archiver and Data Discovery and a professional headshot. The current layouts are complete without image placeholders. Add approved screenshots to the relevant Work articles and Data Discovery page, and the headshot beside the About profile; do not substitute invented interfaces or stock portraits. Other client work needs permission before screenshots or identifying details are published.
