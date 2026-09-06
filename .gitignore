@@ -1,0 +1,19 @@
+# Visual Studio per-user working state.
+# These are opened and locked by VS while it runs, which is why
+# "Commit All" fails with "Permission denied" on .vsidx files.
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+slnx.sqlite
+
+# Working notes kept beside the site but not part of it.
+# This repo is GitHub Pages: anything committed here is published.
+Claude outputs/
+
+# OS cruft
+Thumbs.db
+ehthumbs.db
+desktop.ini
+.DS_Store
