@@ -10,7 +10,7 @@ This is a **zero-build static site**. Each page is a complete semantic HTML docu
 
 | URL | Source | Content |
 | --- | --- | --- |
-| `/` | `index.html` | Positioning, problems, approach, six capabilities, four projects, modernization, principal and contact |
+| `/` | `index.html` | Positioning, featured Integration Hub, three supporting projects, Gord's introduction, four problems, six service links and engagement/contact guidance |
 | `/services/` | `services/index.html` | Six service sections with stable anchors |
 | `/work/` | `work/index.html` | Four representative case studies and the modernization approach |
 | `/data-discovery/` | `data-discovery/index.html` | Product, supported formats, source protection, workflow and use cases |
@@ -22,7 +22,9 @@ This is a **zero-build static site**. Each page is a complete semantic HTML docu
 - `site.js` progressively enhances the mobile menu. Navigation links remain visible when JavaScript is disabled. The enhancement supports keyboard activation, Escape, closing after navigation and viewport changes.
 - `sitemap.xml` lists the six public pages. Each HTML page has its own title, description, canonical URL and social metadata. JSON-LD describes the company and website, internal-page breadcrumbs, Gord on About, and the Windows application on Data Discovery.
 - The original company-provided `assets/gkc-logo.png` is unchanged. `gkc-mark.png`, `favicon-32.png` and `apple-touch-icon.png` are browser-rendered square badges showing the original mark with its surrounding outer padding removed; the logo was not redrawn. `og-gkc.png` is a 1200 × 630 social card using that mark and the site's typography.
-- All fonts use the operating system's local sans-serif stack. No external assets, analytics, cookies, web fonts, form processor or other external service is added by this site.
+- Public Sans regular and semibold are served locally from `assets/fonts/`, with a system-font fallback and `font-display: swap`. The font files are from the official [Public Sans repository](https://github.com/uswds/public-sans/tree/d3df3455fb94643925f816276e81b231bc31619f/fonts/webfonts); their SIL Open Font License is included in `assets/fonts/OFL.txt`. There is no third-party font request, analytics, cookie, form processor or other service integration.
+- The presentation uses navy with copper accents. The original company logo and existing social-sharing image remain unchanged.
+- Gord's supplied LinkedIn profile is linked from About and every footer, and appears in the About `Person.sameAs` data. Visible top-level breadcrumbs are omitted; their structured data remains.
 - Contact buttons use `mailto:` links. Demonstration and modernization links prefill the subject; the visitor sends the message through their own email application. There is no web form or server-side submission endpoint.
 
 The original homepage anchors `#top`, `#company`, `#data-discovery` and `#contact` remain meaningful. The company name, public email address, domain and Data Discovery's supported formats and read-only source protection remain visible. Data Discovery's dedicated page retains the supported Word, Excel, PDF, `.txt` and `.eml` information. This repository contains no application download, signing pipeline or certificate configuration.
@@ -34,6 +36,8 @@ Edit the HTML and CSS directly. The pages share consistent markup and CSS classe
 Use the approved redesign brief as the content and positioning source. The public project names are Integration Hub, Data Discovery, Email Archiver and Operational Data Transformer. Client attribution is intentionally generic. The modernization approach is described as a service approach, not a fabricated completed client engagement.
 
 Do not add unverified credentials, client names, testimonials, metrics, measured outcomes or product claims. Use only sanitized, approved screenshots if screenshots are introduced later. No production screenshots or confidential client information are included in this version.
+
+Gord is arranging screenshots of Email Archiver and Data Discovery and a professional headshot. The current layouts are complete without image placeholders. Add approved screenshots to the relevant Work articles and Data Discovery page, and the headshot beside the About profile; do not substitute invented interfaces or stock portraits. Other client work needs permission before screenshots or identifying details are published.
 
 ## Local preview
 
@@ -59,7 +63,7 @@ There is no build command or installed test suite. Before publication:
 6. If Node.js is already available, `node --check site.js` checks JavaScript syntax without installing anything.
 7. Run `git diff --check` and verify the diff does not change `CNAME`, `.nojekyll`, the original logo or deployment configuration.
 
-The redesign was checked locally in Chromium-based Edge at 1440, 1024, 768, 390 and 320px widths, with keyboard, no-JavaScript, 200% text-size and reduced-motion checks. Verification tooling and screenshots are kept outside the website repository; they are not runtime or build dependencies.
+The first redesign was checked locally in Chromium-based Edge. The editorial/copper revision was checked in the in-app browser at 1440, 1024, 768, 390 and 320px widths. Keyboard navigation, Escape/focus return, navigation without the enhancement script, and 200% text enlargement passed. All local links and fragments resolve, metadata and JSON-LD parse, and the updated text/background pairs exceed 4.5:1 contrast. The reduced-motion stylesheet remains in place. Verification tooling is kept outside the website repository; it is not a runtime or build dependency.
 
 ## Production configuration — preserve
 
