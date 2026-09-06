@@ -16,7 +16,7 @@
     <meta property="og:image" content="https://gkcdatasolutions.com/assets/og-gkc.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="GKC Data Solutions. We understand the business problem — and build the software to solve it.">
+    <meta property="og:image:alt" content="GKC Data Solutions. The analyst and the developer are the same person.">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Data Discovery | Search Document Archives with Cited AI Answers">
     <meta name="twitter:description" content="Inventory, search and ask questions across business document archives using keyword and semantic search while preserving original source files.">
@@ -65,17 +65,20 @@
             <h2 id="discovery-does-title">Beyond knowing which folder to open.</h2>
             <p>Keyword search helps when you know the wording. Semantic search helps find passages related to the meaning of a question. Data Discovery builds both kinds of index from a document collection.</p>
             <p>Answers include citations so you can open the supporting material and review it in context.</p>
+            <h3 class="subhead">The answer is usually the attachment.</h3>
+            <p>Email search that stops at the message body misses the thing you are looking for. The decision is in the spreadsheet someone attached in 2019, not in the two lines of covering text.</p>
+            <p>Data Discovery decodes supported attachments and indexes them as documents in their own right. An attachment is its own citation, carrying a reference back to the message it arrived with, and an evidence copy is the original decoded file rather than a converted version of it.</p>
           </div>
           <aside class="identity-panel" aria-labelledby="formats-title">
             <h3 id="formats-title">Supported content</h3>
             <ul class="detail-list">
               <li>Microsoft Word</li>
               <li>Microsoft Excel</li>
-              <li>PDF</li>
+              <li>PDF with a text layer</li>
               <li>Plain-text <code>.txt</code></li>
-              <li>Email <code>.eml</code></li>
+              <li>Email <code>.eml</code>, and the documents attached to it</li>
             </ul>
-            <p class="detail-note">Original source documents are read-only. Search indexes, generated content and evidence outputs are created separately from the source archive.</p>
+            <p class="detail-note">Original source documents are read-only. Search indexes, generated content and evidence outputs are created separately from the source archive. Scanned PDFs with no text layer, archives and other unsupported types are recorded in the inventory but not read.</p>
           </aside>
         </div>
       </section>
@@ -84,6 +87,7 @@
           <div>
             <h2 id="workflow-title">Working with a collection</h2>
             <p class="muted">For project records, reports, engineering documents and other archives held across supported file formats.</p>
+            <p class="muted">A collection is any folder the machine can reach: a local drive, an external disk, or a synced OneDrive or SharePoint library. One thing to plan for with a synced library — Windows downloads online-only files the moment anything reads them, so processing will pull that content onto the disk. That is how Files On-Demand works rather than anything Data Discovery decides, but the disk space is worth checking first.</p>
           </div>
           <ol class="workflow-list">
             <li>Select a document collection</li>
@@ -97,10 +101,12 @@
       </section>
       <section class="section" aria-labelledby="deployment-title">
         <div class="shell editorial-split">
-          <h2 id="deployment-title">Choose where the AI runs.</h2>
+          <h2 id="deployment-title">Your archive is not what gets sent.</h2>
           <div>
-            <p>Local embedding and model options are available, alongside configured AI providers. The choice depends on the organization’s privacy requirements and deployment environment.</p>
-            <p class="muted">A demonstration can cover the types of documents you need to search, how citations work and which configuration fits your archive.</p>
+            <p>Indexing and retrieval always run on your own machine. Documents are embedded locally with a pinned, checksummed Nomic model on ONNX Runtime, optionally on the GPU through DirectML with no CUDA install required.</p>
+            <p>Only a generated answer sends anything out, and only your question and the passages already selected as evidence. Source files and document paths are never sent, the application asks you to acknowledge the exchange before it happens, and those passages are the ones cited beneath the answer. You can see exactly what went.</p>
+            <p>Answers can also be generated locally through LM Studio, which you install and run yourself. That is the fully private option, but a local model needs enough GPU to hold both the evidence and the response, and most machines do not have it. That constraint is why retrieval stays local rather than the whole pipeline.</p>
+            <p class="muted">If a chosen provider is unavailable, Data Discovery stops and explains what needs attention. It never switches providers on its own.</p>
           </div>
         </div>
       </section>
