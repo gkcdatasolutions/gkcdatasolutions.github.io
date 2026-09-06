@@ -74,14 +74,12 @@ li::marker { color: var(--accent); }
 .method-diagram { margin: 0; max-width: 26rem; width: 100%; font-size: 1rem; }
 .method-diagram figcaption { margin-bottom: 2rem; color: #b3c0ca; font-size: .75rem; letter-spacing: .04em; }
 .method-diagram span { display: block; color: #b3c0ca; font-size: .75rem; margin-top: .3rem; }
-.method-start, .method-end { text-align: center; padding: .95rem .4rem; border-block: 1px solid #657582; }
+.method-start, .method-end { text-align: center; padding: .95rem .4rem; }
 .method-start { border-top: 2px solid var(--accent-light); }
-.method-branches { display: grid; grid-template-columns: 1fr 1fr; padding-block: 2rem; text-align: center; position: relative; }
-.method-branches::before, .method-branches::after { content: ''; position: absolute; left: 50%; height: 1.15rem; width: 1px; background: var(--accent-light); }
-.method-branches::before { top: 0; }
-.method-branches::after { bottom: 0; }
+.method-end { border-bottom: 1px solid #657582; }
+.method-link { display: block; width: 100%; height: 2.5rem; fill: none; stroke: var(--accent-light); stroke-width: 1; opacity: .7; }
+.method-branches { display: grid; grid-template-columns: 1fr 1fr; text-align: center; }
 .method-branches > div { padding-inline: .5rem; }
-.method-branches > div + div { border-left: 1px solid #465563; }
 .method-end { color: var(--accent-light); }
 .featured-project { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(2rem, 5vw, 5rem); border-top: 3px solid var(--accent); border-bottom: 1px solid var(--border); padding-block: 2.8rem; }
 .featured-project h3 { font-size: clamp(2.1rem, 3.5vw, 3rem); max-width: 28rem; }
@@ -198,8 +196,7 @@ li::marker { color: var(--accent); }
   .hero .lead { max-width: 42rem; }
   .method-diagram { max-width: 30rem; }
   .method-diagram figcaption { margin-bottom: 1rem; }
-  .method-branches { padding-block: 1.5rem; }
-  .method-branches::before, .method-branches::after { height: .75rem; }
+  .method-link { height: 1.9rem; }
   .featured-project, .principal-intro, .editorial-split, .engagement, .split, .cta-band .split, .service-detail, .case-content, .profile-layout { grid-template-columns: 1fr; gap: 2rem; }
   .featured-project h3 { max-width: none; }
   .featured-project h3 br { display: none; }
