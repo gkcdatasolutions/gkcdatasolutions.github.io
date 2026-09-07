@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Selected Software &amp; Integration Work | GKC Data Solutions</title>
-    <meta name="description" content="Explore Integration Hub, Data Discovery, Email Archiver and data transformation software designed and developed by GKC Data Solutions.">
+    <meta name="description" content="Explore Integration Hub, Data Discovery, Email Archiver, data transformation and ERP reporting software designed and developed by GKC Data Solutions.">
     <link rel="canonical" href="https://gkcdatasolutions.com/work/">
     <meta name="theme-color" content="#0d1822">
     <meta property="og:type" content="website">
@@ -52,12 +52,13 @@
         <div class="shell">
           <p class="eyebrow">Selected work</p>
           <h1 id="page-title">A closer look at the software.</h1>
-          <p class="lead">Two products I own and develop, and two systems built for a client. Each one covers the problem it addresses and what was delivered. Client names are withheld.</p>
+          <p class="lead">Two products I own and develop, two systems built for a client, and the reporting platform I built inside an engineering firm. Each one covers the problem it addresses and what was delivered. Client names are withheld.</p>
           <ul class="page-links">
             <li><a href="#data-discovery">Data Discovery</a></li>
             <li><a href="#email-archiver">Email Archiver</a></li>
             <li><a href="#integration-hub">Integration Hub</a></li>
             <li><a href="#transformer">Operational Data Transformer</a></li>
+            <li><a href="#erp-reporting">ERP reporting platform</a></li>
           </ul>
         </div>
       </section>
@@ -185,6 +186,37 @@
                 <li>A repeatable transformation workflow</li>
               </ul>
               <p class="technology"><strong>Technology</strong>SQL, data mapping and transformation tooling</p>
+            </aside>
+          </div>
+        </article>
+      </section>
+      <section class="work-group" aria-labelledby="in-house-title">
+        <div class="work-group-head">
+          <h2 id="in-house-title">Built inside an organization</h2>
+          <p>Systems built for the business I worked in, alongside the commercial software it ran on.</p>
+        </div>
+        <article class="case-study" id="erp-reporting" aria-labelledby="erp-reporting-title">
+          <div class="case-header">
+            <p class="eyebrow">ERP reporting platform</p>
+            <h3 id="erp-reporting-title">Extending a closed ERP without changing it.</h3>
+          </div>
+          <div class="case-content">
+            <div class="case-narrative">
+              <p>Allnorth ran its business on BST10, a cloud-hosted ERP. The system held everything the firm needed to see, but not in a form the business could reach: no interface covered the reporting and the custom applications that finance, the project management office and the field needed. Commissioning changes inside a vendor&rsquo;s product is a slow way to answer a question that changes every quarter.</p>
+              <p>So I left the ERP alone and built around it. The vendor delivered a database backup to Azure every four hours, which I restored into an on-premises SQL Server as a read-only copy. A layer of SQL views and procedures over that copy resolved the parts of the schema that mattered, and every application we built kept its own data in its own database on the same server. Nothing we wrote ever posted into the ERP, so the ERP stayed authoritative and everything else stayed free to change.</p>
+              <p>From there the same consistent copy served spreadsheets, Power BI and custom desktop and web applications. It carried resource scheduling and demand by skill and experience rather than headcount alone, revenue forecasting, and the variance analysis that located where revenue was leaking and margin eroding. Field time arrived the other way: crews submitted it on paper-equivalent forms that a process of mine imported directly into the ERP, which had no import path of its own.</p>
+            </div>
+            <aside class="case-aside" aria-label="ERP reporting platform deliverables">
+              <h4>What I built</h4>
+              <ul class="detail-list">
+                <li>Four-hourly replication of the vendor-hosted database into Azure</li>
+                <li>Restore into an on-premises SQL Server as a read-only copy</li>
+                <li>A SQL view and procedure layer over the replicated schema</li>
+                <li>Application databases alongside it, so no custom software wrote into the ERP</li>
+                <li>Reporting for the project management office, finance and payroll</li>
+                <li>Field time capture imported into an ERP with no import of its own</li>
+              </ul>
+              <p class="technology"><strong>Technology</strong>.NET, C#, SQL Server, Azure, Power BI, BST10</p>
             </aside>
           </div>
         </article>
