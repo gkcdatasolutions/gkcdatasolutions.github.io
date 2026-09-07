@@ -186,8 +186,8 @@ li::marker { color: var(--accent); }
 .bio p { color: var(--muted); max-width: 65ch; }
 .bio .intro-copy { color: var(--ink); }
 .profile-layout { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: 5rem; align-items: start; }
-.background-narrative { max-width: 41rem; }
-.background-narrative p { color: var(--muted); }
+.page-narrative { max-width: 41rem; }
+.page-narrative p { color: var(--muted); }
 .principle-list { margin: 0; }
 .principle-list > div { padding-block: 1.3rem; border-bottom: 1px solid var(--border); }
 .principle-list > div:first-child { padding-top: 0; }
