@@ -29,3 +29,38 @@
     if (focusWillBeHidden) toggle.focus();
   });
 })();
+
+/* The screenshot link opens the full page on its own without this optional viewer. */
+(() => {
+  const links = document.querySelectorAll('a.shot-zoom');
+  if (!links.length || typeof HTMLDialogElement !== 'function' || !HTMLDialogElement.prototype.showModal) return;
+  let dialog = null;
+  let opener = null;
+  const build = () => {
+    dialog = document.createElement('dialog');
+    dialog.className = 'shot-dialog';
+    dialog.innerHTML = '<div class="shot-dialog-bar"><p></p><button class="shot-dialog-close" type="button">Close</button></div><div class="shot-dialog-scroll"><img alt=""></div>';
+    dialog.addEventListener('click', (event) => {
+      if (event.target === dialog || event.target.closest('.shot-dialog-close')) dialog.close();
+    });
+    dialog.addEventListener('close', () => { if (opener) opener.focus(); });
+    document.body.append(dialog);
+    return dialog;
+  };
+  links.forEach((link) => {
+    link.addEventListener('click', (event) => {
+      if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      const view = dialog || build();
+      const thumbnail = link.querySelector('img');
+      const image = view.querySelector('img');
+      image.src = link.href;
+      image.alt = thumbnail ? thumbnail.alt : '';
+      view.querySelector('.shot-dialog-bar p').textContent = link.dataset.viewerLabel || '';
+      view.setAttribute('aria-label', link.dataset.viewerLabel || 'Full screenshot');
+      opener = link;
+      view.showModal();
+      view.querySelector('.shot-dialog-scroll').scrollTop = 0;
+    });
+  });
+})();
