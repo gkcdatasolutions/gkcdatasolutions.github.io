@@ -92,13 +92,14 @@ li::marker { color: var(--accent); }
 .shot-zoom-hint { position: absolute; right: .55rem; bottom: .55rem; display: inline-flex; align-items: center; gap: .4rem; max-width: calc(100% - 1.1rem); padding: .4rem .65rem; border: 1px solid rgba(232, 176, 123, .55); border-radius: .15rem; background: rgba(13, 24, 34, .9); color: #fff; font-size: .78rem; line-height: 1.25; transition: background .15s ease, border-color .15s ease; }
 .shot-zoom-hint .arrow { width: .9rem; height: .9rem; }
 .shot-zoom:hover .shot-zoom-hint, .shot-zoom:focus-visible .shot-zoom-hint { background: var(--accent); border-color: var(--accent); }
-.shot-dialog { width: min(96vw, 1400px); max-width: 96vw; padding: 0; border: 1px solid var(--border); border-radius: .15rem; background: var(--paper); color: var(--ink); }
-.shot-dialog::backdrop { background: rgba(13, 24, 34, .82); }
-.shot-dialog-bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .55rem .55rem .55rem .9rem; border-bottom: 1px solid var(--border); }
-.shot-dialog-bar p { margin: 0; color: var(--muted); font-size: .8125rem; }
-.shot-dialog-close { padding: .4rem .8rem; border: 1px solid var(--border); border-radius: .15rem; background: var(--soft); color: var(--ink); cursor: pointer; font-size: .8125rem; }
-.shot-dialog-close:hover { border-color: var(--accent); color: var(--accent); }
-.shot-dialog-scroll { overflow: auto; max-height: calc(92vh - 3.2rem); overscroll-behavior: contain; }
+.shot-dialog { width: min(96vw, 1400px); max-width: 96vw; padding: 0; border: 1px solid #2c3742; border-radius: .2rem; background: #0f151b; color: #dbe3e9; box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, .5); }
+.shot-dialog::backdrop { background: rgba(4, 7, 10, .88); }
+.shot-dialog-bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .6rem .6rem .6rem .95rem; border-bottom: 1px solid #232c35; background: #0b1015; }
+.shot-dialog-bar p { margin: 0; color: #93a2ae; font-size: .8125rem; letter-spacing: .01em; }
+.shot-dialog-close { padding: .4rem .85rem; border: 1px solid #38434e; border-radius: .15rem; background: #1a232c; color: #e3e9ee; cursor: pointer; font-size: .8125rem; transition: border-color .15s ease, color .15s ease, background .15s ease; }
+.shot-dialog-close:hover { border-color: var(--accent-light); background: #222d37; color: var(--accent-light); }
+.shot-dialog :focus-visible { outline: 3px solid var(--accent-light); outline-offset: 3px; }
+.shot-dialog-scroll { overflow: auto; max-height: calc(92vh - 3.4rem); overscroll-behavior: contain; background: #0f151b; scrollbar-color: #3a454f #0f151b; }
 .shot-dialog-scroll img { display: block; width: 100%; height: auto; }
 .supporting-projects { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.8rem; padding-top: 2rem; }
 .supporting-projects h3 { font-size: 1.15rem; line-height: 1.4; }
