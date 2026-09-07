@@ -78,7 +78,7 @@ The first redesign was checked locally in Chromium-based Edge. The editorial/cop
 - The `_github-pages-challenge-gkcdatasolutions` TXT record used for account-level domain verification must remain in DNS permanently.
 - Preserve all Google Workspace MX, TXT and other email-related DNS records.
 
-The redesign is developed on `codex/consultancy-website-redesign`. Pushing that branch stores the work for review; it does not publish it under the current `main`-branch Pages configuration. **Do not merge or push the redesign to `main`, change the Pages source, or deploy without separate authorization.**
+The site is developed on `hero-revision`, the single working line. It is a fast-forward ahead of `main`, so it can be published without a merge commit when that is authorized. The earlier `codex/consultancy-website-redesign` branch is retired: its commits are ancestors of `hero-revision`, and the remote branch remains only as a historical marker. Pushing `hero-revision` stores the work for review; it does not publish it under the current `main`-branch Pages configuration. **Do not merge or push to `main`, change the Pages source, or deploy without separate authorization.**
 
 Official hosting reference:
 
