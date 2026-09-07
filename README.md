@@ -14,12 +14,12 @@ This is a **zero-build static site**. Each page is a complete semantic HTML docu
 | `/services/` | `services/index.html` | Six service sections with stable anchors |
 | `/work/` | `work/index.html` | Four representative case studies and the modernization approach |
 | `/data-discovery/` | `data-discovery/index.html` | Product, supported formats, source protection, workflow and use cases |
-| `/about/` | `about/index.html` | Company details, Gord's profile and operating principles |
+| `/about/` | `about/index.html` | Company details, Gord's profile, his background and operating principles |
 | `/contact/` | `contact/index.html` | Direct email contact and discussion prompts |
 | Missing URL | `404.html` | Branded return navigation |
 
 - `styles.css` contains the shared palette, type scale, layouts, component styles, responsive rules and focus/reduced-motion treatments.
-- `site.js` progressively enhances the mobile menu. Navigation links remain visible when JavaScript is disabled. The enhancement supports keyboard activation, Escape, closing after navigation and viewport changes.
+- `site.js` progressively enhances the mobile menu and the screenshot viewer. Navigation links remain visible when JavaScript is disabled, and each screenshot link opens its full image directly. The menu enhancement supports keyboard activation, Escape, closing after navigation and viewport changes. The viewer opens a native `<dialog>`, returns focus to the link it was opened from, and suppresses the focus ring when the link was opened by pointer rather than keyboard.
 - `sitemap.xml` lists the six public pages. Each HTML page has its own title, description, canonical URL and social metadata. JSON-LD describes the company and website, internal-page breadcrumbs, Gord on About, and the Windows application on Data Discovery.
 - The original company-provided `assets/gkc-logo.png` is unchanged. `gkc-mark.png`, `favicon-32.png` and `apple-touch-icon.png` are browser-rendered square badges showing the original mark with its surrounding outer padding removed; the logo was not redrawn. `og-gkc.png` is a 1200 × 630 social card using that mark and the site's typography.
 - Public Sans regular and semibold are served locally from `assets/fonts/`, with a system-font fallback and `font-display: swap`. The font files are from the official [Public Sans repository](https://github.com/uswds/public-sans/tree/d3df3455fb94643925f816276e81b231bc31619f/fonts/webfonts); their SIL Open Font License is included in `assets/fonts/OFL.txt`. There is no third-party font request, analytics, cookie, form processor or other service integration.
@@ -33,13 +33,22 @@ The original homepage anchors `#top`, `#company`, `#data-discovery` and `#contac
 
 Edit the HTML and CSS directly. The pages share consistent markup and CSS classes; no template compilation is required. When changing the header or footer, apply the same change to all seven HTML documents, preserving each page's `aria-current="page"` navigation state. Keep each page's title, description, canonical URL, Open Graph and X/Twitter fields consistent with that page.
 
-Use the approved redesign brief as the content and positioning source. The public project names are Integration Hub, Data Discovery, Email Archiver and Operational Data Transformer. Client attribution is intentionally generic. The modernization approach is described as a service approach, not a fabricated completed client engagement.
+Use the approved redesign brief as the content and positioning source. The public project names are Integration Hub, Data Discovery, Email Archiver and Operational Data Transformer. Client attribution is intentionally generic on Work. About names Industrial Forestry Service, Allnorth Consultants and Northern Development Initiative Trust, which Gord approved directly. The modernization approach is described as a service approach, not a fabricated completed client engagement.
 
 Gord's subsequent positioning clarification takes precedence over copy that implies every engagement ends in a custom build: always assess software already on the market against the client's requirements first. Recommend buying when an existing application fits. Build only for needs the market cannot meet, including missing parts around a suitable existing product. Recommendations must be fit for purpose and serve the client's interests; development is a means to that end.
 
-Do not add unverified credentials, client names, testimonials, metrics, measured outcomes or product claims. Use only sanitized, approved screenshots if screenshots are introduced later. No production screenshots or confidential client information are included in this version.
+Do not add unverified credentials, client names, testimonials, metrics, measured outcomes or product claims. Use only sanitized, approved screenshots; see **Screenshots** below. No confidential client information is included.
 
-Gord is arranging screenshots of Email Archiver and Data Discovery and a professional headshot. The current layouts are complete without image placeholders. Add approved screenshots to the relevant Work articles and Data Discovery page, and the headshot beside the About profile; do not substitute invented interfaces or stock portraits. Other client work needs permission before screenshots or identifying details are published.
+A professional headshot for the About profile is still outstanding; do not substitute a stock portrait or an invented interface. Other client work needs permission before screenshots or identifying details are published.
+
+## Screenshots
+
+Published captures: the Data Discovery Ask screen on the home page, and the Email Archiver Failures & Replay and Email Search screens in the Work case study. Each is a cropped detail that opens the full screen in the viewer described above.
+
+- **Capture narrow, not wide.** These apps are local web UIs, so capture through Chrome DevTools: `Ctrl+Shift+M`, set the dimensions, reveal DPR through the device toolbar's three-dot menu (*Add device pixel ratio*), then `Ctrl+Shift+P` and *Capture full size screenshot*. Match the app's own content-column width to the slot the image will occupy, so its text renders near 1:1. An 820px viewport suits the ~525px home-page slot; 1440 suits the 1184px Work column. A wide capture squeezed into a narrow slot is why the previous screenshot was unreadable.
+- **Set DPR to 2 or 3.** That is what keeps text edges clean. Export WebP; the detail crops are roughly a fifth the size of the equivalent PNG.
+- **Crop clear of the app sidebar**, whose active-item highlight extends past the nav panel itself, and end on a complete row rather than a sliced one.
+- **Check every capture for personal data before publishing.** One Email Archiver capture exposed a personal mailbox. The pixels were destroyed in the source image before either asset was derived from it, so the crop and the full view stay consistent.
 
 ## Local preview
 
@@ -53,6 +62,8 @@ Then open `http://127.0.0.1:8765/`. Directory routes and root-relative assets re
 
 Python's basic server uses its own missing-file response. Visit `/404.html` to inspect the branded error document locally; GitHub Pages serves that document for missing production paths.
 
+Two ways that server misleads. It sends no `Cache-Control`, so a browser keeps serving an old `styles.css` or `site.js` after you change one and the page renders new markup against stale assets; force-reload, or serve with `no-store`. It also has no MIME type for `.webp` on some installs and falls back to `application/octet-stream`, which makes a browser download the image instead of displaying it. GitHub Pages sends `image/webp` correctly, so both are preview artefacts only.
+
 ## Verification
 
 There is no build command or installed test suite. Before publication:
@@ -65,7 +76,7 @@ There is no build command or installed test suite. Before publication:
 6. If Node.js is already available, `node --check site.js` checks JavaScript syntax without installing anything.
 7. Run `git diff --check` and verify the diff does not change `CNAME`, `.nojekyll`, the original logo or deployment configuration.
 
-The first redesign was checked locally in Chromium-based Edge. The editorial/copper revision was checked in the in-app browser at 1440, 1024, 768, 390 and 320px widths. Keyboard navigation, Escape/focus return, navigation without the enhancement script, and 200% text enlargement passed. All local links and fragments resolve, metadata and JSON-LD parse, and the updated text/background pairs exceed 4.5:1 contrast. The reduced-motion stylesheet remains in place. Verification tooling is kept outside the website repository; it is not a runtime or build dependency.
+The first redesign was checked locally in Chromium-based Edge. The editorial/copper revision was checked in the in-app browser at 1440, 1024, 768, 390 and 320px widths. Keyboard navigation, Escape/focus return, navigation without the enhancement script, and 200% text enlargement passed. All local links and fragments resolve, metadata and JSON-LD parse, and the updated text/background pairs exceed 4.5:1 contrast. The reduced-motion stylesheet remains in place. The screenshot viewer was checked for Escape, focus return, the pointer versus keyboard focus-ring distinction, and the JavaScript-off path, which opens the image inline rather than downloading it. The screenshot figures were checked for overflow at 1440, 1024, 768, 390 and 320px. Verification tooling is kept outside the website repository; it is not a runtime or build dependency.
 
 ## Production configuration — preserve
 
@@ -78,7 +89,7 @@ The first redesign was checked locally in Chromium-based Edge. The editorial/cop
 - The `_github-pages-challenge-gkcdatasolutions` TXT record used for account-level domain verification must remain in DNS permanently.
 - Preserve all Google Workspace MX, TXT and other email-related DNS records.
 
-The site is developed on `hero-revision`, the single working line. It is a fast-forward ahead of `main`, so it can be published without a merge commit when that is authorized. The earlier `codex/consultancy-website-redesign` branch is retired: its commits are ancestors of `hero-revision`, and the remote branch remains only as a historical marker. Pushing `hero-revision` stores the work for review; it does not publish it under the current `main`-branch Pages configuration. **Do not merge or push to `main`, change the Pages source, or deploy without separate authorization.**
+The site is developed on `hero-revision`, the single working line, and published by fast-forwarding `main` to it. The redesign, the screenshots and the About biography have all been published that way, so `main` and `hero-revision` are level. The earlier `codex/consultancy-website-redesign` branch is retired: its commits are ancestors of `hero-revision`, and the remote branch remains only as a historical marker. Pushing `hero-revision` stores work for review and publishes nothing. **Publishing is a separate decision every time. Do not merge to `main`, change the Pages source, or deploy without Gord saying so explicitly.** Before a fast-forward, run `git fetch && git branch -f main origin/main` so local `main` is not behind.
 
 Official hosting reference:
 
