@@ -103,6 +103,8 @@
               <p>Project correspondence arrives in email, but the record belongs with the work it concerns. Filing it manually becomes difficult to track when many work units and destinations are involved.</p>
               <p>I developed an archiving application that identifies work-related messages, resolves the work unit and determines the destination. Configurable rules control how messages are delivered to SharePoint or the file system.</p>
               <p>Delivery state and failure diagnostics let administrators see what happened to a message. Retry and recovery are included because an interrupted delivery still needs to be accounted for.</p>
+              <p>A copy of each message is taken as it arrives and held in Azure, independently of the mailbox it came from and of the server that files it. If someone deletes the original, or the archive server is lost, the captured record is unaffected.</p>
+              <p>Filing only matters if the message can be found again. Every archived message keeps its sender, subject, dates and work unit, so it can be located without opening a mailbox. Messages delivered to SharePoint carry those same details as metadata columns, so they sort and filter there like any other document.</p>
             </div>
             <aside class="case-aside" aria-label="Email Archiver deliverables">
               <h4>What I built</h4>
@@ -112,6 +114,9 @@
                 <li>SharePoint and file-system delivery</li>
                 <li>Delivery tracking and failure diagnostics</li>
                 <li>Administrative controls for retry and recovery</li>
+                <li>Durable capture in Azure, independent of mailbox and server</li>
+                <li>Search by sender, subject, date and work unit</li>
+                <li>SharePoint metadata columns for each delivered message</li>
               </ul>
               <p class="technology"><strong>Technology</strong>.NET, C#, SQL Server, Microsoft 365, SharePoint, Azure</p>
             </aside>
