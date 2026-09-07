@@ -36,6 +36,7 @@
   if (!links.length || typeof HTMLDialogElement !== 'function' || !HTMLDialogElement.prototype.showModal) return;
   let dialog = null;
   let opener = null;
+  let openedByKeyboard = false;
   const build = () => {
     dialog = document.createElement('dialog');
     dialog.className = 'shot-dialog';
@@ -43,7 +44,20 @@
     dialog.addEventListener('click', (event) => {
       if (event.target === dialog || event.target.closest('.shot-dialog-close')) dialog.close();
     });
-    dialog.addEventListener('close', () => { if (opener) opener.focus(); });
+    dialog.addEventListener('close', () => {
+      const link = opener;
+      if (!link) return;
+      // Focus must return to the link. Closing with Escape counts as keyboard
+      // input, so a viewer opened by pointer would otherwise come back with a
+      // ring drawn around the image. Suppress it until the keyboard is used.
+      if (!openedByKeyboard) {
+        link.classList.add('is-pointer-return');
+        const clear = () => link.classList.remove('is-pointer-return');
+        link.addEventListener('blur', clear, { once: true });
+        link.addEventListener('keydown', clear, { once: true });
+      }
+      link.focus({ preventScroll: true });
+    });
     document.body.append(dialog);
     return dialog;
   };
@@ -59,6 +73,7 @@
       view.querySelector('.shot-dialog-bar p').textContent = link.dataset.viewerLabel || '';
       view.setAttribute('aria-label', link.dataset.viewerLabel || 'Full screenshot');
       opener = link;
+      openedByKeyboard = event.detail === 0;
       view.showModal();
       view.querySelector('.shot-dialog-scroll').scrollTop = 0;
     });

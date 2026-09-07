@@ -92,6 +92,8 @@ li::marker { color: var(--accent); }
 .shot-zoom-hint { position: absolute; right: .55rem; bottom: .55rem; display: inline-flex; align-items: center; gap: .4rem; max-width: calc(100% - 1.1rem); padding: .4rem .65rem; border: 1px solid rgba(232, 176, 123, .55); border-radius: .15rem; background: rgba(13, 24, 34, .9); color: #fff; font-size: .78rem; line-height: 1.25; transition: background .15s ease, border-color .15s ease; }
 .shot-zoom-hint .arrow { width: .9rem; height: .9rem; }
 .shot-zoom:hover .shot-zoom-hint, .shot-zoom:focus-visible .shot-zoom-hint { background: var(--accent); border-color: var(--accent); }
+.shot-zoom.is-pointer-return:focus-visible { outline: none; }
+.shot-zoom.is-pointer-return:focus-visible .shot-zoom-hint { background: rgba(13, 24, 34, .9); border-color: rgba(232, 176, 123, .55); }
 .shot-dialog { width: min(96vw, 1400px); max-width: 96vw; padding: 0; border: 1px solid #2c3742; border-radius: .2rem; background: #0f151b; color: #dbe3e9; box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, .5); }
 .shot-dialog::backdrop { background: rgba(4, 7, 10, .88); }
 .shot-dialog-bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .6rem .6rem .6rem .95rem; border-bottom: 1px solid #232c35; background: #0b1015; }
