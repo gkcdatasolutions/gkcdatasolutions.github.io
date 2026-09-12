@@ -1,6 +1,8 @@
 # GKC Data Solutions Inc. website
 
-The public consultancy and product website for **GKC Data Solutions Inc.**, led by Gord Cross, Principal. The site presents business analysis, continuous improvement, systems integration, custom software development, AI integration and software modernization alongside Data Discovery.
+The public consultancy and product website for **GKC Data Solutions Inc.**, led by Gord Cross, Principal. Consulting and custom development lead the site, aimed at owners and finance leaders in professional services firms serving the resource industries. Services include business analysis, continuous improvement, systems integration, ERP migration and integration, custom software, AI integration and software modernization. Data Discovery and Email Archiver have a separate Products section.
+
+**12 September 2026 review:** Gord approved the clarity revision for publication, including the shorter About sections. Client permission for the Integration Hub and Transformer descriptions is confirmed. CSCI wording remains a separate follow-up for drafting and review with Craig.
 
 Repository: `gkcdatasolutions/gkcdatasolutions.github.io` under the authorized `gkcdatasolutions` personal GitHub account. Production URL: `https://gkcdatasolutions.com/`.
 
@@ -10,17 +12,19 @@ This is a **zero-build static site**. Each page is a complete semantic HTML docu
 
 | URL | Source | Content |
 | --- | --- | --- |
-| `/` | `index.html` | Positioning, featured Integration Hub, three supporting projects, Gord's introduction, four problems, six service links and engagement/contact guidance |
-| `/services/` | `services/index.html` | Six service sections with stable anchors |
-| `/work/` | `work/index.html` | Four representative case studies and the modernization approach |
+| `/` | `index.html` | Collaborative approach, service summary, Field LEM results, Gord's introduction, product links and engagement guidance |
+| `/services/` | `services/index.html` | Seven service offers with stable anchors and concise ERP planning guidance |
+| `/work/` | `work/index.html` | Projects: EMS Extension’s Field LEM and BST-to-UKG workflows, ERP reporting, Integration Hub and Transformer |
+| `/products/` | `products/index.html` | Data Discovery and Email Archiver summaries, demonstration and pilot availability |
 | `/data-discovery/` | `data-discovery/index.html` | Product, supported formats, source protection, workflow and use cases |
+| `/email-archiver/` | `email-archiver/index.html` | Product filing workflow, staff and administrator roles, administration previews and earlier Allnorth experience |
 | `/about/` | `about/index.html` | Company details, Gord's profile, his background and operating principles |
 | `/contact/` | `contact/index.html` | Direct email contact and discussion prompts |
 | Missing URL | `404.html` | Branded return navigation |
 
 - `styles.css` contains the shared palette, type scale, layouts, component styles, responsive rules and focus/reduced-motion treatments.
 - `site.js` progressively enhances the mobile menu and the screenshot viewer. Navigation links remain visible when JavaScript is disabled, and each screenshot link opens its full image directly. The menu enhancement supports keyboard activation, Escape, closing after navigation and viewport changes. The viewer opens a native `<dialog>`, returns focus to the link it was opened from, and suppresses the focus ring when the link was opened by pointer rather than keyboard.
-- `sitemap.xml` lists the six public pages. Each HTML page has its own title, description, canonical URL and social metadata. JSON-LD describes the company and website, internal-page breadcrumbs, Gord on About, and the Windows application on Data Discovery.
+- `sitemap.xml` lists the eight public pages. Each HTML page has its own title, description, canonical URL and social metadata. JSON-LD describes the company and website, internal-page breadcrumbs, Gord on About, and the Windows application on Data Discovery. Product breadcrumbs include Products.
 - The original company-provided `assets/gkc-logo.png` is unchanged. `gkc-mark.png`, `favicon-32.png` and `apple-touch-icon.png` are browser-rendered square badges showing the original mark with its surrounding outer padding removed; the logo was not redrawn. `og-gkc.png` is a 1200 × 630 social card using that mark and the site's typography.
 - Public Sans regular and semibold are served locally from `assets/fonts/`, with a system-font fallback and `font-display: swap`. The font files are from the official [Public Sans repository](https://github.com/uswds/public-sans/tree/d3df3455fb94643925f816276e81b231bc31619f/fonts/webfonts); their SIL Open Font License is included in `assets/fonts/OFL.txt`. There is no third-party font request, analytics, cookie, form processor or other service integration.
 - The presentation uses navy with copper accents. The original company logo and existing social-sharing image remain unchanged.
@@ -31,9 +35,13 @@ The original homepage anchors `#top`, `#company`, `#data-discovery` and `#contac
 
 ## Editing
 
-Edit the HTML and CSS directly. The pages share consistent markup and CSS classes; no template compilation is required. When changing the header or footer, apply the same change to all seven HTML documents, preserving each page's `aria-current="page"` navigation state. Keep each page's title, description, canonical URL, Open Graph and X/Twitter fields consistent with that page.
+Edit the HTML and CSS directly. The pages share consistent markup and CSS classes; no template compilation is required. When changing the header or footer, apply the same change to all nine HTML documents. Top-level pages use `aria-current="page"`; product detail pages mark Products with `aria-current="location"`. Keep each page's title, description, canonical URL, Open Graph and X/Twitter fields consistent with that page.
 
-Use the approved redesign brief as the content and positioning source. The public project names are Integration Hub, Data Discovery, Email Archiver and Transformer. Client attribution is intentionally generic on Work. About names Industrial Forestry Service, Allnorth Consultants and Northern Development Initiative Trust, which Gord approved directly. The modernization approach is described as a service approach, not a fabricated completed client engagement.
+Use the approved redesign brief and Gord’s subsequent website review notes and copy draft as the content and positioning sources. Projects distinguishes work completed during Gord’s Allnorth employment from custom client projects. Integration Hub and Transformer are client-owned applications, not GKC products offered for licensing. Data Discovery and Email Archiver are available for demonstrations and pilot discussions. About names Industrial Forestry Service, Allnorth Consultants and Northern Development Initiative Trust, which Gord approved directly.
+
+Field LEM processing and the BST-to-UKG payroll export are two workflows within EMS Extension. The approximate two-FTE reduction is Gord’s estimate of processing effort for Field LEM only. Lead with the observed end of evening/weekend entry, rapid invoice preparation and improved rate matching. The UKG workflow has no separate quantified saving and does not replace UKG’s pay rules.
+
+The navigation label is Projects; `/work/` remains the URL. Existing `/work/#data-discovery` and `/work/#email-archiver` anchors lead to links for the dedicated product pages. The ERP service retains `/services/#erp-implementation`; the old `/contact/#software-modernization` anchor now lands on the general contact section.
 
 Gord's subsequent positioning clarification takes precedence over copy that implies every engagement ends in a custom build: always assess software already on the market against the client's requirements first. Recommend buying when an existing application fits. Build only for needs the market cannot meet, including missing parts around a suitable existing product. Recommendations must be fit for purpose and serve the client's interests; development is a means to that end.
 
@@ -43,7 +51,7 @@ A professional headshot for the About profile is still outstanding; do not subst
 
 ## Screenshots
 
-Published captures: the Data Discovery Ask screen on the home page, and the Email Archiver Failures & Replay and Email Search screens in the Work case study. Each is a cropped detail that opens the full screen in the viewer described above.
+Existing approved captures are reused in the revision: the Data Discovery Ask screen on its dedicated product page, and the Email Archiver Failures & Replay and Email Search screens inside an expandable administration preview on its product page. Each is a cropped detail that opens the full screen in the existing viewer. Email Search is an administrative fallback; ordinary staff access filed records in SharePoint or network folders.
 
 - **Capture narrow, not wide.** These apps are local web UIs, so capture through Chrome DevTools: `Ctrl+Shift+M`, set the dimensions, reveal DPR through the device toolbar's three-dot menu (*Add device pixel ratio*), then `Ctrl+Shift+P` and *Capture full size screenshot*. Match the app's own content-column width to the slot the image will occupy, so its text renders near 1:1. An 820px viewport suits the ~525px home-page slot; 1440 suits the 1184px Work column. A wide capture squeezed into a narrow slot is why the previous screenshot was unreadable.
 - **Set DPR to 2 or 3.** That is what keeps text edges clean. Export WebP; the detail crops are roughly a fifth the size of the equivalent PNG.
@@ -68,7 +76,7 @@ Two ways that server misleads. It sends no `Cache-Control`, so a browser keeps s
 
 There is no build command or installed test suite. Before publication:
 
-1. Preview all six pages and `/404.html` at desktop, tablet and narrow mobile widths. Check text at 200% enlargement, overflow, readable diagrams and focus visibility.
+1. Preview all eight public pages and `/404.html` at desktop, tablet and narrow mobile widths. Check text at 200% enlargement, overflow, readable diagrams and focus visibility.
 2. Navigate by keyboard: skip link, menu button, all navigation links and calls to action. Verify Escape closes the mobile menu and returns focus to its button.
 3. Disable JavaScript and confirm the navigation and content remain available. Check reduced-motion behaviour.
 4. Verify local links, service/project anchors, original homepage anchors, email targets and image loading.
@@ -77,6 +85,8 @@ There is no build command or installed test suite. Before publication:
 7. Run `git diff --check` and verify the diff does not change `CNAME`, `.nojekyll`, the original logo or deployment configuration.
 
 The first redesign was checked locally in Chromium-based Edge. The editorial/copper revision was checked in the in-app browser at 1440, 1024, 768, 390 and 320px widths. Keyboard navigation, Escape/focus return, navigation without the enhancement script, and 200% text enlargement passed. All local links and fragments resolve, metadata and JSON-LD parse, and the updated text/background pairs exceed 4.5:1 contrast. The reduced-motion stylesheet remains in place. The screenshot viewer was checked for Escape, focus return, the pointer versus keyboard focus-ring distinction, and the JavaScript-off path, which opens the image inline rather than downloading it. The screenshot figures were checked for overflow at 1440, 1024, 768, 390 and 320px. Verification tooling is kept outside the website repository; it is not a runtime or build dependency.
+
+The September 12 clarity revision was checked at 1440, 768 and 320px: all nine pages had one H1 and no horizontal overflow. Local links and fragments, retained compatibility anchors, HTML tag nesting, metadata, JSON-LD and the sitemap passed static checks. Mobile menu activation, navigation, Escape/focus return and the existing screenshot viewer were verified. Preview images return the correct MIME type. Hosting configuration, the original logo and JavaScript were not changed.
 
 ## Production configuration — preserve
 
